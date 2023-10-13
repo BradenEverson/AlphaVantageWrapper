@@ -20,7 +20,7 @@ AlphaVantageWrapper = "{version}"
 ## Usage
 
 ```rust
-use 
+use reqwest::Error;
 use AlphaVantageWrapper::broker::broker_api::BrokerAPI;
 
 #[tokio::main]
