@@ -1,4 +1,4 @@
-use super::broker_options::{Function, DataType};
+use crate::broker::broker_options::{Function, DataType};
 
 pub struct BrokerRequest<'a>{
     pub function: Function<'a>,

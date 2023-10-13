@@ -1,4 +1,4 @@
-use crate::lib::response_types::parsed_data::TimeSeries;
+use crate::broker::response_types::parsed_data::TimeSeries;
 
 pub struct BrokerResponse{
     pub TimeSeriesData: Vec<TimeSeries>

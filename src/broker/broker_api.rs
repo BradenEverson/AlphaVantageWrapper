@@ -1,6 +1,4 @@
-
-
-use crate::lib::{broker_response::{*}, response_types::api_data::{StockData}};
+use crate::broker::{broker_response::{*}, response_types::api_data::{StockData}};
 use reqwest::Error;
 use super::{broker_request::BrokerRequest, broker_options::{Function, DataType}};
 

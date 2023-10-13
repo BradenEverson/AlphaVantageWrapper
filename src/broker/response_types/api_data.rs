@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use crate::lib::response_types::parsed_data::TimeSeries;
+use crate::broker::response_types::parsed_data::TimeSeries;
 
 use std::collections::BTreeMap;
 
