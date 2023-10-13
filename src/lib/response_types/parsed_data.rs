@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize, Debug)]
-pub struct TimeSeries<'a>{
-    pub time_stamp: &'a str,
+pub struct TimeSeries{
+    pub time_stamp: String,
 
     pub open: f64,
     pub close: f64,
@@ -11,8 +11,8 @@ pub struct TimeSeries<'a>{
     pub vol: i32
 }
 
-impl<'a> TimeSeries<'a>{
-    pub fn new(open: f64, close: f64, high: f64, low: f64, vol: i32, time_stamp: &str) -> TimeSeries<'a>{
-        TimeSeries { time_stamp: time_stamp, open: open, close: close, high: high, low: low, vol: vol }
+impl TimeSeries{
+    pub fn new(open: f64, close: f64, high: f64, low: f64, vol: i32, time_stamp: &str) -> TimeSeries{
+        TimeSeries { time_stamp: time_stamp.to_string(), open: open, close: close, high: high, low: low, vol: vol }
     }
 }

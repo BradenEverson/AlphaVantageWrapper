@@ -48,12 +48,22 @@ pub struct StockData {
 }
 
 impl StockData{
-    pub fn clean_data(&mut self) -> Vec<TimeSeries> {
+    pub fn clean_data(&self) -> Vec<TimeSeries> {
         let mut response_timeseries: Vec<TimeSeries> = vec![];
-        
-        for (time_stamp, data) in self.time_series.iter(){
-        }
 
+        for (_, data_entries) in self.time_series.iter() {
+            for (time_stamp, data) in data_entries.entries.iter(){
+                let high_f64: f64 = str::parse::<f64>(&data.high).unwrap();
+                let low_f64: f64 = str::parse::<f64>(&data.low).unwrap();
+                let close_f64: f64 = str::parse::<f64>(&data.close).unwrap();
+                let open_f64: f64 = str::parse::<f64>(&data.open).unwrap();
+
+                let volume_i32: i32 = str::parse::<i32>(&data.volume).unwrap();
+                let ts: TimeSeries = TimeSeries::new(open_f64, close_f64, high_f64, low_f64, volume_i32, time_stamp);
+
+                response_timeseries.push(ts);
+            }
+        }
         response_timeseries
     }
 }
