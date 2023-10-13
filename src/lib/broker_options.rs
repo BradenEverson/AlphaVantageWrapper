@@ -44,7 +44,7 @@ impl OutputSize{
     }
 }
 
-pub enum function<'a>{
+pub enum Function<'a>{
     TimeSeriesIntraday(
         Interval,
         //adjusted
@@ -70,7 +70,7 @@ pub enum function<'a>{
 
 //NOTE: Function enum handles all unique api parameters of each function, 
 //still must implement apikey, symbol and datatype on the higher level
-impl<'a> function<'a>{
+impl<'a> Function<'a>{
     pub fn get_val(&self) -> String{
         return match self{
             Self::TimeSeriesIntraday(interval, adjusted, extended_hours, month, output_size) => {
