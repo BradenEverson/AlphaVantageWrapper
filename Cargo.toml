@@ -3,6 +3,8 @@ name = "AlphaVantageWrapper"
 version = "0.1.0"
 authors = ["BradenEverson"]
 edition = "2021"
+description = "A wrapper library for the Alpha Vantage API!"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
