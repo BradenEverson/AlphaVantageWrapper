@@ -29,6 +29,6 @@ impl<'a> BrokerAPI<'a>{
         let response = reqwest::get(request.get_url()).await?;
         let resp_json: StockData = response.json().await?;
         let resp_parse = resp_json.clean_data();
-        Ok(BrokerResponse { TimeSeriesData: resp_parse })
+        Ok(BrokerResponse { time_series_data: resp_parse })
     }
 }

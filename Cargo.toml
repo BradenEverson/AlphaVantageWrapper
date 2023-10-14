@@ -1,6 +1,6 @@
 [package]
-name = "AlphaVantageWrapper"
-version = "0.2.1"
+name = "alpha_vantage_wrapper"
+version = "0.2.2"
 authors = ["BradenEverson"]
 edition = "2021"
 description = "A wrapper library for the Alpha Vantage API!"
