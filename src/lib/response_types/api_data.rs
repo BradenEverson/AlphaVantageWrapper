@@ -20,15 +20,15 @@ pub struct MetaData {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct TimeSeriesData{
     #[serde(rename = "1. open")]
-    open: Option<String>,
+    open: String,
     #[serde(rename = "2. high")]
-    high: Option<String>,
+    high: String,
     #[serde(rename = "3. low")]
-    low: Option<String>,
+    low: String,
     #[serde(rename = "4. close")]
-    close: Option<String>,
+    close: String,
     #[serde(rename = "5. volume")]
-    volume: Option<String>,
+    volume: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
