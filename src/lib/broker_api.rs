@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
 
-use crate::lib::{broker_response::{*}, response_types::stockstruct::{StockData, MinuteData}};
+use crate::lib::{broker_response::{*}, response_types::stockstruct::{StockData, TimeSeriesEntry}};
 use reqwest::Error;
 use super::{broker_request::BrokerRequest, broker_options::{Function, DataType}};
 
@@ -16,7 +16,6 @@ impl<'a> BrokerAPI<'a>{
     }
     pub async fn request(&self, symbol: &str, function: Function<'a>, data_type: DataType) -> Result<BrokerResponse, Error>{
         let request: BrokerRequest = BrokerRequest::new(symbol , self.token, function, data_type);
-        
         let response = reqwest::get(request.get_url()).await?;
         let resp_json: StockData = response.json().await?;
         println!("{:?}", resp_json); 

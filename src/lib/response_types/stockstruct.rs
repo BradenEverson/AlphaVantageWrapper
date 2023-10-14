@@ -18,29 +18,29 @@ pub struct MetaData {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct TimeSeries {
-    #[serde(flatten)]
-    time_series: BTreeMap<String, MinuteData>,
+pub struct TimeSeriesData{
+    #[serde(rename = "1. open")]
+    open: Option<String>,
+    #[serde(rename = "2. high")]
+    high: Option<String>,
+    #[serde(rename = "3. low")]
+    low: Option<String>,
+    #[serde(rename = "4. close")]
+    close: Option<String>,
+    #[serde(rename = "5. volume")]
+    volume: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct MinuteData {
-    #[serde(rename = "1. open")]
-    open: String,
-    #[serde(rename = "2. high")]
-    high: String,
-    #[serde(rename = "3. low")]
-    low: String,
-    #[serde(rename = "4. close")]
-    close: String,
-    #[serde(rename = "5. volume")]
-    volume: String,
+pub struct TimeSeriesEntry {
+    #[serde(flatten)]
+    entries: BTreeMap<String, TimeSeriesData>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct StockData {
-    #[serde(rename = "Meta Data")]
+    #[serde(rename="Meta Data")]
     meta_data: MetaData,
-    #[serde(alias = "Time Series (1min)", alias = "Weekly Time Series", alias = "Daily Time Series")]
-    time_series: Option<TimeSeries>,
+    #[serde(flatten)]
+    time_series: BTreeMap<String, TimeSeriesEntry>,
 }

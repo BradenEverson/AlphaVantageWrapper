@@ -64,8 +64,7 @@ pub enum Function<'a>{
     TimeSeriesWeekly,
     TimeSeriesWeeklyAdjusted,
     TimeSeriesMonthly,
-    TimeSeriesMonthlyAdjusted,
-    QuoteEndpoint
+    TimeSeriesMonthlyAdjusted
 }
 
 //NOTE: Function enum handles all unique api parameters of each function, 
@@ -107,7 +106,6 @@ impl<'a> Function<'a>{
             Self::TimeSeriesWeeklyAdjusted => "?function=TIME_SERIES_WEEKLY_ADJUSTED".to_string(), 
             Self::TimeSeriesMonthly => "?function=TIME_SERIES_MONTHLY".to_string(),
             Self::TimeSeriesMonthlyAdjusted => "?function=TIME_SERIES_MONTHLY_ADJUSTED".to_string(),
-            Self::QuoteEndpoint => "?function=GLOBAL_QUOTE".to_string()
         }
     }
 }
