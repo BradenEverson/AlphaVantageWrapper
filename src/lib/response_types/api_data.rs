@@ -1,4 +1,6 @@
 use serde::{Deserialize, Serialize};
+use crate::lib::response_types::parsed_data::TimeSeries;
+
 use std::collections::BTreeMap;
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -43,4 +45,15 @@ pub struct StockData {
     meta_data: MetaData,
     #[serde(flatten)]
     time_series: BTreeMap<String, TimeSeriesEntry>,
+}
+
+impl StockData{
+    pub fn clean_data(&mut self) -> Vec<TimeSeries> {
+        let mut response_timeseries: Vec<TimeSeries> = vec![];
+        
+        for (time_stamp, data) in self.time_series.iter(){
+        }
+
+        response_timeseries
+    }
 }
