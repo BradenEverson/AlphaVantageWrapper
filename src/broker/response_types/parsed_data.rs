@@ -16,3 +16,11 @@ impl TimeSeries{
         TimeSeries { time_stamp: time_stamp.to_string(), open: open, close: close, high: high, low: low, vol: vol }
     }
 }
+
+impl PartialEq for TimeSeries{
+    fn eq(&self, other: &Self) -> bool {
+        self.time_stamp == other.time_stamp
+    }
+}
+
+impl Eq for TimeSeries{}
