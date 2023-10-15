@@ -20,10 +20,14 @@ AlphaVantageWrapper = "{version}"
 ## Usage
 
 ```rust
+use 
 use AlphaVantageWrapper::broker::broker_api::BrokerAPI;
 
-fn main(){
+#[tokio::main]
+async fn main() -> Result<(),Error>{
     let alpha_api = BrokerAPI::new("[API KEY]");
+
+    Ok(())
 }
 ```
 
